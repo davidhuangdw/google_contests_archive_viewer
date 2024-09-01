@@ -1,53 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/tauri";
-import "./App.css";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import MainLayout from "./pages/layout.tsx";
+import {Typography} from "@mui/material";
+import Problems from "./pages/problems";
+import {ProblemContextProvider} from "./contexts/ProblemContext.tsx";
+
+const Home = () => <Typography variant="h4">Home Page</Typography>;
+const About = () => <Typography variant="h4">About Page</Typography>;
+const Contact = () => <Typography variant="h4">Contact Page</Typography>;
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <MainLayout/>,
+        children: [
+            {index: true, path: "", element: <Problems/>},
+            {path: "home", element: <Home/>},
+            {path: "about", element: <About/>},
+            {path: "contact", element: <Contact/>},
+        ]
+    },
+]);
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
-  return (
-    <div className="container">
-      <h1>Welcome to Tauri!</h1>
-
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-
-      <p>{greetMsg}</p>
-    </div>
-  );
+    return (
+        <ProblemContextProvider >
+            <RouterProvider router={router} />
+        </ProblemContextProvider>
+    );
 }
 
 export default App;

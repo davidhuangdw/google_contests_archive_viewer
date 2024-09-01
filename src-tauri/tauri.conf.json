@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "codejam",
+    "productName": "Google Contests Archive Viewer",
     "version": "0.1.0"
   },
   "tauri": {
@@ -19,9 +19,9 @@
     },
     "windows": [
       {
-        "title": "codejam",
-        "width": 800,
-        "height": 600
+        "title": "GoogleContestsArchive",
+        "width": 1200,
+        "height": 800
       }
     ],
     "security": {
@@ -30,7 +30,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.codejam.app",
+      "identifier": "google.contests.archive.app",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",

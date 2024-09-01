@@ -1,7 +1,17 @@
-# Tauri + React + Typescript
+# Google Contents Archive Viewer
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+macOS desktop App by tauri+react
 
-## Recommended IDE Setup
+* archive repo: https://github.com/google/coding-competitions-archive
+* to config downloaded archive directory: './src-tauri/src/config.rs'
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+```bash
+yarn install
+
+yarn tauri dev // for auto-reload dev
+
+yarn tauri build // to release
+
+```
+
+![Sample](screenshots/1.png)
