@@ -24,7 +24,7 @@ const ProblemsTree: FC = () => {
 
 
     return (
-        <Box sx={{margin: 2, minWidth: 250}}>
+        <Box sx={{margin: 2, minWidth: 250, overflowX: 'auto'}}>
             <SimpleTreeView onSelectedItemsChange={(_e, id) => id && set_cur_item(id)}>
                 {renderTree(round_tree)}
             </SimpleTreeView>
